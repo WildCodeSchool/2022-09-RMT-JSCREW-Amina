@@ -5,3 +5,14 @@
 body {
   background-color: #1f2235;
 }
+.hello-title-home {
+  color: #ff4a57;
+}
+.button-home {
+  background-color: #ff4a57;
+}
+.button-home:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
