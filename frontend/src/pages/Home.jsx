@@ -36,21 +36,17 @@ function Home() {
           />
         </div>
         <div className="md:flex ">
-          <Link to="/PORTFOLIO">
-            <button
-              type="button"
-              className="button-home text-white text-center text-xl rounded my-6 py-1 mx-6 px-4"
-            >
-              Portfolio
-            </button>
+          <Link
+            to="/PORTFOLIO"
+            className="button-home text-white text-center text-xl rounded my-6 py-1 mx-6 px-4"
+          >
+            Portfolio
           </Link>
-          <Link to="/CONTACT">
-            <button
-              type="button"
-              className="button-home text-center text-white text-xl rounded my-6 py-1 mx-6 px-4"
-            >
-              Contact
-            </button>
+          <Link
+            to="/CONTACT"
+            className="button-home text-center text-white text-xl rounded my-6 py-1 mx-6 px-4"
+          >
+            Contact
           </Link>
         </div>
       </div>
