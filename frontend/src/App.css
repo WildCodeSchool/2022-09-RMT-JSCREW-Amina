@@ -15,4 +15,9 @@ body {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
-
+.about-line {
+  border-color: #ff4a57;
+}
+.about-card {
+  border-color: #ff4a57;
+}
