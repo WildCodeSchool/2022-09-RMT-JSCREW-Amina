@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS `amina_db`.`user` ;
 CREATE TABLE IF NOT EXISTS `amina_db`.`user` (
   `iduser` INT AUTO_INCREMENT NOT NULL,
   `email` VARCHAR(50) NOT NULL,
-  `password_haché` VARCHAR(150) NOT NULL,
+  `password_hache` VARCHAR(150) NOT NULL,
   PRIMARY KEY (`iduser`))
 ENGINE = InnoDB;
 
@@ -96,7 +96,7 @@ VALUES("CSS", "https://www.flaticon.com/free-icon/css_919826?term=css&page=1&pos
 ("Bootstrap", "https://www.flaticon.com/free-icon/bootstrap_5968672?term=bootstrap&page=1&position=1&page=1&position=1&related_id=5968672&origin=search"),
 ("Tailwindcss", "https://www.svgrepo.com/show/354431/tailwindcss-icon.svg"),
 ("Sass", "https://www.flaticon.com/free-icon/sass_5968403?term=sass&page=1&position=7&page=1&position=7&related_id=5968403&origin=search");
-INSERT INTO user (email, password_haché)
+INSERT INTO user (email, password_hache)
 VALUES("amina.hakimi86@gmail.com", "matgAog3r6t@"),
 ("amina.hakimi2022@gmail.com", "lkdht98Hk@%");
 INSERT INTO projet (titre_projet, description_projet, date_debut, date_fin, url_image, url_github, url_site, Librairiecs_idLibrairiecs, archive, user_iduser)
