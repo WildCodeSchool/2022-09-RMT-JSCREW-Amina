@@ -53,9 +53,8 @@ function Carousel() {
             className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
             key={obj.id}
           >
-           <img src={obj.src} alt={obj.titre} />
-           </div>
-    
+            <img src={obj.src} alt={obj.titre} />
+          </div>
         );
       })}
       <BtnSlider moveSlide={nextSlide} direction="next" />
@@ -67,7 +66,7 @@ function Carousel() {
             onClick={() => moveDot(index + 1)}
             className={`${slideIndex === index + 1 ? "dot active" : "dot"} `}
           >
-            
+            {index + 1}
           </button>
         ))}
       </div>
