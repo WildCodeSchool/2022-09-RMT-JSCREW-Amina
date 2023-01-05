@@ -40,7 +40,7 @@ function Carousel() {
           >
             <img
               src={`${import.meta.env.VITE_BACKEND_URL}/${obj.url_image}`}
-              alt={obj.titre}
+              alt={`${import.meta.env.VITE_BACKEND_URL}/${obj.titre_projet}`}
             />
           </div>
         );
