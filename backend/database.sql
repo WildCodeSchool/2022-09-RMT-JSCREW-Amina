@@ -100,8 +100,8 @@ INSERT INTO user (email, password_hache)
 VALUES("amina.hakimi86@gmail.com", "matgAog3r6t@"),
 ("amina.hakimi2022@gmail.com", "lkdht98Hk@%");
 INSERT INTO projet (titre_projet, description_projet, date_debut, date_fin, url_image, url_github, url_site, Librairiecs_idLibrairiecs, archive, user_iduser)
-VALUES("Site web en HTML et CSS", "Site web destiné à promouvoir les paysages japonais", "2022-09-26", "2022-10-07", "https://www.istockphoto.com/fr/photo/gros-plan-se-concentre-sur-les-mains-d", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-TEAM-B", "https://wildcodeschool.github.io/2022-09-JS-RMT-JSCREW-TEAM-B/index.html", 1, 0, 1),
-("Site web en React", "Plateforme de streaming de films", "2022-10-17", "2022-11-23", "https://www.istockphoto.com/fr/photo/gros-plan-se-concentre-sur-les-mains-de-la-personne-tapant-sur", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", 2, 0, 1);
+VALUES("Site web en HTML et CSS", "Site web destiné à promouvoir les paysages japonais", "2022-09-26", "2022-10-07", "assets/images/image-projet-1.png", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-TEAM-B", "https://wildcodeschool.github.io/2022-09-JS-RMT-JSCREW-TEAM-B/index.html", 1, 0, 1),
+("Site web en React", "Plateforme de streaming de films", "2022-10-17", "2022-11-23", "assets/images/image-projet-2.png", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", 2, 0, 1);
 INSERT INTO projet_language (language_idLanguage, projet_idprojet)
 VALUES(1, 1),
 (2, 2);
