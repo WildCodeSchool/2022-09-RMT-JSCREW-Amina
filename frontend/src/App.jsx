@@ -14,7 +14,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/APROPOS" element={<About />} />
           <Route path="/PORTFOLIO" element={<Carousel />} />
-
         </Routes>
       </div>
     </Router>
