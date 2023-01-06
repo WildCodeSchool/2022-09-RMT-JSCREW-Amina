@@ -13,4 +13,6 @@ router.delete("/items/:id", itemControllers.destroy);
 
 router.get("/PORTFOLIO", ProjectControllers.browse);
 router.get("/PORTFOLIO/:id", ProjectControllers.read);
+router.post("/PORTFOLIO", ProjectControllers.add);
+router.delete("/PORTFOLIO/:id", ProjectControllers.destroy);
 module.exports = router;
