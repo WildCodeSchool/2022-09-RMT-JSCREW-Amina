@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `amina_db`.`projet_language` (
   CONSTRAINT `fk_table1_projet1`
     FOREIGN KEY (`projet_idprojet`)
     REFERENCES `amina_db`.`projet` (`idprojet`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
