@@ -1,4 +1,5 @@
 const express = require("express");
+const ProjectControllers = require("./controllers/ProjectControllers");
 
 const router = express.Router();
 
@@ -10,4 +11,8 @@ router.put("/items/:id", itemControllers.edit);
 router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
 
+router.get("/PORTFOLIO", ProjectControllers.browse);
+router.get("/PORTFOLIO/:id", ProjectControllers.read);
+router.post("/PORTFOLIO", ProjectControllers.add);
+router.delete("/PORTFOLIO/:id", ProjectControllers.destroy);
 module.exports = router;
