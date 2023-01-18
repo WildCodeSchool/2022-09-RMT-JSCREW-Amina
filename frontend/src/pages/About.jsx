@@ -48,12 +48,13 @@ function About() {
           </span>
         </div>
         <div className="inline mt-5">
-          <Link
-            to="/"
-            className="button-home hidden text-center text-lg text-white rounded md:inline md:mx-6 md:my-6 md:py-1 md:px-4"
+          <a href={`${import.meta.env.VITE_BACKEND_URL}/assets/images/CVAminaHAKIMI.pdf`}
+          target="_blank"
+          download
+          className="button-home hidden text-center text-lg text-white rounded md:inline md:mx-6 md:my-6 md:py-1 md:px-4"
           >
             Télécharger CV
-          </Link>
+          </a>
         </div>
       </div>
     </div>
