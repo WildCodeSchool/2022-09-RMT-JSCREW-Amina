@@ -5,6 +5,15 @@ class ProjectManager extends AbstractManager {
     super({ table: "projet" });
   }
 
+  // findAll() {
+  //   return this.connection.query(`select * from  ${this.table}`);
+  // }
+  findAll() {
+    return this.connection.query(
+      `select * from  ${this.table} INNER JOIN librairie_css WHERE Librairiecs_idLibrairiecs = idLibrairiecs`
+    );
+  }
+
   find(id) {
     return this.connection.query(
       `select * from  ${this.table} where idprojet= ?`,

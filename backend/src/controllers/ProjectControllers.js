@@ -1,10 +1,25 @@
 const models = require("../models");
 
 const browse = (req, res) => {
+  // 1er Récupérer l'ensemble des projets
   models.projet
     .findAll()
-    .then(([projets]) => {
-      res.send(projets);
+    .then(async ([projets]) => {
+      // 2ème pour Chaque projets (Boucle), il faut récupérer ses languages
+      const languageByProject = await Promise.all(
+        projets.map((projet) =>
+          models.projet_language.findAllByID(projet.idprojet)
+        )
+      );
+
+      // 3ème Associer les tableaux de languages à leurs projets
+
+      res.status(200).json(
+        projets.map((projet, index) => ({
+          ...projet,
+          language: languageByProject[index][0],
+        }))
+      );
     })
     .catch((err) => {
       console.error(err);
@@ -55,3 +70,10 @@ const destroy = (req, res) => {
 };
 
 module.exports = { browse, read, add, destroy };
+
+/**
+ * [
+ * ['JS', 'PHP],
+ * ['Sass', JS, RE]
+ * ]
+ */
