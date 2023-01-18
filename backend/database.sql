@@ -4,7 +4,7 @@
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `amina`.`librairie_css` ;
 
-CREATE TABLE IF NOT EXISTS `amina_db`.`librairie_css` (
+CREATE TABLE IF NOT EXISTS `amina`.`librairie_css` (
   `idLibrairiecs` INT AUTO_INCREMENT NOT NULL,
   `nom` VARCHAR(45) NOT NULL,
   `url_icone` VARCHAR(250) NULL,
@@ -12,11 +12,11 @@ CREATE TABLE IF NOT EXISTS `amina_db`.`librairie_css` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `amina_db`.`user`
+-- Table `amina`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `amina_db`.`user` ;
+DROP TABLE IF EXISTS `amina`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `amina_db`.`user` (
+CREATE TABLE IF NOT EXISTS `amina`.`user` (
   `iduser` INT AUTO_INCREMENT NOT NULL,
   `email` VARCHAR(50) NOT NULL,
   `password_hache` VARCHAR(150) NOT NULL,
@@ -24,11 +24,11 @@ CREATE TABLE IF NOT EXISTS `amina_db`.`user` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `amina_db`.`projet`
+-- Table `amina`.`projet`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `amina_db`.`projet` ;
+DROP TABLE IF EXISTS `amina`.`projet` ;
 
-CREATE TABLE IF NOT EXISTS `amina_db`.`projet` (
+CREATE TABLE IF NOT EXISTS `amina`.`projet` (
   `idprojet` INT AUTO_INCREMENT NOT NULL,
   `titre_projet` VARCHAR(150) NOT NULL,
   `description_projet` VARCHAR(200) NOT NULL,
@@ -54,11 +54,11 @@ CREATE TABLE IF NOT EXISTS `amina_db`.`projet` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `amina_db`.`language`
+-- Table `amina`.`language`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `amina_db`.`language` ;
+DROP TABLE IF EXISTS `amina`.`language` ;
 
-CREATE TABLE IF NOT EXISTS `amina_db`.`language` (
+CREATE TABLE IF NOT EXISTS `amina`.`language` (
   `idLanguage` INT AUTO_INCREMENT NOT NULL,
   `name` VARCHAR(500) NOT NULL,
   `url_icone` VARCHAR(250) NULL,
@@ -66,11 +66,11 @@ CREATE TABLE IF NOT EXISTS `amina_db`.`language` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `amina_db`.`projet_language`
+-- Table `amina`.`projet_language`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `amina_db`.`projet_language` ;
+DROP TABLE IF EXISTS `amina`.`projet_language` ;
 
-CREATE TABLE IF NOT EXISTS `amina_db`.`projet_language` (
+CREATE TABLE IF NOT EXISTS `amina`.`projet_language` (
   `language_idLanguage` INT NOT NULL,
   `projet_idprojet` INT NOT NULL,
   PRIMARY KEY (`language_idLanguage`, `projet_idprojet`),
