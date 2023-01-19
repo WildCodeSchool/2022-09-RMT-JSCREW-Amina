@@ -81,9 +81,9 @@ function Carousel() {
             Librairie css utilisée : {project[slideIndex - 1].nom}
           </p>
           <p className="text-white text-center  mx-6 my-5 font-medium md:hidden">
-            Durée du projet :{" "}
-            {project[slideIndex - 1].date_debut.split("T").shift()} au{" "}
-            {project[slideIndex - 1].date_fin.split("T").shift()}{" "}
+            Durée du projet :
+            {project[slideIndex - 1].date_debut.split("T").shift()} au
+            {project[slideIndex - 1].date_fin.split("T").shift()}
           </p>
           <div className="flex flex-col items-center">
             <a
