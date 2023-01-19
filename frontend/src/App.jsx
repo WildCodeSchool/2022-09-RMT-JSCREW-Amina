@@ -4,6 +4,7 @@ import "./App.css";
 import NavBar from "@components/NavBar";
 import About from "@pages/About";
 import Carousel from "@components/Carousel/Carousel";
+import Skills from "@pages/Skills";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/APROPOS" element={<About />} />
           <Route path="/PORTFOLIO" element={<Carousel />} />
+          <Route path="/COMPÉTENCES" element={<Skills />} />
         </Routes>
       </div>
     </Router>
