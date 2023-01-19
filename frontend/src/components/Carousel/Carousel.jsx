@@ -75,7 +75,7 @@ function Carousel() {
             {project[slideIndex - 1].description_projet}
           </p>
           <p className="text-white text-center  mx-6 my-5 font-medium z-20 md:hidden">
-            {/* Languages utilisés : {project[slideIndex - 1].languages[0].name} */}
+            Languages utilisés : {project[slideIndex - 1].language[0].name}
           </p>
           <p className="text-white text-center  mx-6 my-5 font-medium z-20 md:hidden">
             Librairie css utilisée : {project[slideIndex - 1].nom}
