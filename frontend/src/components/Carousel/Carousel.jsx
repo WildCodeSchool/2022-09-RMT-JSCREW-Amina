@@ -46,10 +46,6 @@ function Carousel() {
                 alt={`${import.meta.env.VITE_BACKEND_URL}/${obj.titre_projet}`}
                 className="z-0"
               />
-              {/* <div className="absolute bottom-0">
-            <p className="text-white z-20">{obj.description_projet}</p>
-            <p>{obj.nom}</p>
-            </div> */}
             </div>
           );
         })}
