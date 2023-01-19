@@ -11,8 +11,8 @@ router.put("/items/:id", itemControllers.edit);
 router.post("/items", itemControllers.add);
 router.delete("/items/:id", itemControllers.destroy);
 
-router.get("/PORTFOLIO", ProjectControllers.browse);
-router.get("/PORTFOLIO/:id", ProjectControllers.read);
-router.post("/PORTFOLIO", ProjectControllers.add);
-router.delete("/PORTFOLIO/:id", ProjectControllers.destroy);
+router.get("/Project", ProjectControllers.browse);
+router.get("/Project/:id", ProjectControllers.read);
+router.post("/Project", ProjectControllers.add);
+router.delete("/Project/:id", ProjectControllers.destroy);
 module.exports = router;

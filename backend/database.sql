@@ -2,7 +2,7 @@
 -- -----------------------------------------------------
 -- Table ``.`librairie-css`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `amina`.`librairie_css` ;
+DROP TABLE IF EXISTS `amina_db`.`librairie_css` ;
 
 CREATE TABLE IF NOT EXISTS `amina_db`.`librairie_css` (
   `idLibrairiecs` INT AUTO_INCREMENT NOT NULL,
