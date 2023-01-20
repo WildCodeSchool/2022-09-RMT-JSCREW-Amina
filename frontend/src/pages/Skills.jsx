@@ -9,7 +9,8 @@ import github2 from "../assets/github2.png";
 import tailwind from "../assets/tailwind.png";
 import bootstrap from "../assets/bootstrap.png";
 import node from "../assets/node.png";
-const Skills = () => {
+
+function Skills() {
   const techs = [
     {
       id: 1,
@@ -43,9 +44,9 @@ const Skills = () => {
     },
     {
       id: 6,
-        src: bootstrap,
-        title: "Bootsratp",
-        style: "shadow-purple-400",
+      src: bootstrap,
+      title: "Bootsratp",
+      style: "shadow-purple-400",
     },
     {
       id: 7,
@@ -77,7 +78,9 @@ const Skills = () => {
           <p className="text-4xl font-bold border-b-4 border-gray-500 p-0 inline my-14 mx-6">
             Competences
           </p>
-          <p className="py-0 text-lg px-5 mx-6 mt-6">Les technologies utilisées :</p>
+          <p className="py-0 text-lg px-5 mx-6 mt-6">
+            Les technologies utilisées :
+          </p>
         </div>
 
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px-0">
@@ -94,6 +97,6 @@ const Skills = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Skills;
