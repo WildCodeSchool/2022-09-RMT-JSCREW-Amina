@@ -1,32 +1,31 @@
 import React from "react";
 import Profil from "@assets/Profil.jpg";
-import { Link } from "react-router-dom";
 
 function About() {
   return (
-    <div className="mx-auto md:w-100 mt-40 md:flex items-center justify-between md:mt-40">
+    <div className="mx-auto md:w-100 mt-40 md:flex items-center  md:mt-40">
       <img
         src={Profil}
         alt="profile"
         width="200"
         className="mx-auto rounded-lg ml-24 md:w-[300px] md:mr-2"
       />
-      <div className="md:flex flex-col basis-2/4  text-xl">
+      <div className="md:flex flex-col basis-2/4  text-xl mx-8">
         <h3 className="mx-auto text-white text-xl font-medium ml-5 my-5 md:hidden">
           A PROPOS
         </h3>
         <p className="text-white text-sm ml-4 my-4 my-4 md:text-lg">
-          à la recherche de mon épanouissement j'ai entamée ma reconversion
-          professionnelle dans le développement web et rejoint l'aventure de la
+          à la recherche de mon épanouissement j'ai entamée ma reconversion<br/>
+          professionnelle dans le développement web et rejoint l'aventure de la<br/>
           Wild Code School .
         </p>
-        <p className="text-white text-sm ml-4 my-4 my-3 md:text-lg">
+        <p className="text-white text-sm ml-4 my-4 my-3 md:text-lg leading-10">
           Pendant les 5 mois intensifs nous apprenons les bases de la
-          programmation et mettons en pratiques les notions apprises grâce aux
+          programmation<br/> et mettons en pratiques les notions apprises grâce aux
           ateliers et workshops .
         </p>
         <p className="text-white text-sm ml-4 my-4 my-3 md:text-lg">
-          Nous montons aussi en compétences en réalisons des projets concret de
+          Nous montons aussi en compétences en réalisons des projets concret de<br/>
           sites web à l'issue de la formation je recherche un stage en
           entreprise .
         </p>
@@ -47,11 +46,15 @@ function About() {
             Expérience : 3 projets réalisés pendant la formation
           </span>
         </div>
-        <div className="inline mt-5">
-          <a href={`${import.meta.env.VITE_BACKEND_URL}/assets/images/CVAminaHAKIMI.pdf`}
-          target="_blank"
-          download
-          className="button-home hidden text-center text-lg text-white rounded md:inline md:mx-6 md:my-6 md:py-1 md:px-4"
+        <div className="inline mt-8">
+          <a
+            href={`${
+              import.meta.env.VITE_BACKEND_URL
+            }/assets/images/CVAminaHAKIMI.pdf`}
+            target="_blank"
+            download
+            className="button-home hidden text-center text-lg text-white rounded md:inline md:mx-6 md:my-6 md:py-1 md:px-4"
+            rel="noreferrer"
           >
             Télécharger CV
           </a>

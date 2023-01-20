@@ -19,14 +19,32 @@ function Home() {
           Développeuse web junior
         </span>
         <div className="flex justify-start my-5">
-          <img
-            src={linkedin}
-            alt="linkedin"
-            width="30"
-            height="30"
-            className="mx-8"
-          />
-          <img src={github} alt="github" width="30" height="30" className="" />
+          <a
+            href="https://www.linkedin.com/in/amina-hakimi-64a56642/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={linkedin}
+              alt="linkedin"
+              width="30"
+              height="30"
+              className="mx-8"
+            />
+          </a>
+          <a
+            href="https://github.com/Amina-Hakimi"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={github}
+              alt="github"
+              width="30"
+              height="30"
+              className=""
+            />
+          </a>
           <img
             src={twitter}
             alt="twitter"
