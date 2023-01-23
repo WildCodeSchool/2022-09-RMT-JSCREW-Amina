@@ -1,7 +1,7 @@
 import React from "react";
 
 function Contact() {
-    const handleSubmit = (event) => event.preventDefault();
+  const handleSubmit = (event) => event.preventDefault();
   return (
     <div
       name="contact"
