@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import apiConnexion from "@services/apiConnexion";
 
 function Contact() {
-  const handleSubmit = (event) => event.preventDefault();
+  const [message, setMessage] = useState({
+    email: "",
+    name: "",
+    message: "",
+  });
+  const [msg, setMsg] = useState("");
+  const handleMessage = (value, name) => {
+    const msgprov = { ...message };
+    msgprov[name] = value;
+    setMessage(msgprov);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    apiConnexion
+      .post("/sendEmail", { ...message })
+      .then(() => {
+        setMsg("Message succesfully sent");
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
+  };
   return (
     <div
       name="contact"
@@ -21,8 +43,6 @@ function Contact() {
         <div className=" flex justify-center items-center">
           <form
             onSubmit={handleSubmit}
-            action="submit"
-            method="POST"
             className=" flex flex-col w-full md:w-1/2"
           >
             <input
@@ -30,28 +50,35 @@ function Contact() {
               type="text"
               name="name"
               placeholder="Taper votre nom"
+              value={message.name}
+              onChange={(e) => handleMessage(e.target.value, e.target.name)}
               className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
             />
             <input
               required
               type="text"
               name="email"
+              value={message.email}
               placeholder="Tapez votre email"
+              onChange={(e) => handleMessage(e.target.value, e.target.name)}
               className="my-4 p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
             />
             <textarea
               name="message"
               placeholder="Ecrire votre message"
+              value={message.message}
+              onChange={(e) => handleMessage(e.target.value, e.target.name)}
               rows="10"
               className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
             />
 
             <button
-              type="button"
+              type="submit"
               className="button-home text-white  px-6 py-3 my-8 mx-auto flex items-center rounded-md hover:scale-110 duration-300"
             >
               ENVOYER
             </button>
+            <span>{msg}</span>
           </form>
         </div>
       </div>
