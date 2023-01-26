@@ -18,7 +18,7 @@ function Contact() {
     apiConnexion
       .post("/sendEmail", { ...message })
       .then(() => {
-        setMsg("Message succesfully sent");
+        setMsg("Votre message a été envoyé avec succès");
       })
       .catch((err) => {
         console.warn(err);
@@ -78,7 +78,7 @@ function Contact() {
             >
               ENVOYER
             </button>
-            <span>{msg}</span>
+            <span className="text-center text-lg">{msg}</span>
           </form>
         </div>
       </div>

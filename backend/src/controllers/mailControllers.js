@@ -19,8 +19,8 @@ const sendEmail = (req, res) => {
     from: message.email,
     to: "amina.hakimi86@gmail.com",
     subject: `portfolio - nouveau message de ${message.name}`,
-    text: message.sujet,
-    html: "<p>Hello <em>world</em></p>",
+    text: message.message,
+    html: `${message.message}`,
   };
   return transporter
     .sendMail(mailOption)
