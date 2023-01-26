@@ -1,27 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import apiConnexion from "@services/apiConnexion";
 
 function Admnistration() {
+  const [message, setMessage] = useState("");
+  const [langage, setLangage] = useState([]);
   const [project, setProject] = useState({
     titre_projet: "",
     description_projet: "",
-    language: "",
-    nom: "",
     date_debut: "",
     date_fin: "",
+    language: "",
     url_image: "",
     url_github: "",
     url_site: "",
-    archive: "",
+    Librairiecs_idLibrairiecs: "",
   });
-  const [message, setMessage] = useState("");
-  const handleProject = (name, value) => {
+
+  const getLangage = () => {
+    apiConnexion
+      .get(`/Langages`)
+      .then((json) => setLangage(json.data))
+      .catch((err) => console.error(err));
+  };
+  useEffect(() => {
+    getLangage();
+  }, []);
+
+  const handleProject = (value, name) => {
     const newProject = { ...project };
     newProject[name] = value;
     setProject(newProject);
   };
-  const sendForm = (event) => {
-    event.preventDefault();
+  const postProject = () => {
     apiConnexion
       .post("/Project", { ...project })
       .then(() => {
@@ -31,6 +41,12 @@ function Admnistration() {
         console.warn(err);
       });
   };
+
+  const sendForm = (e) => {
+    e.preventDefault();
+    postProject();
+  };
+
   return (
     <div className="my-36 flex flex-col items-center">
       <h1 className="text-white text-center text-3xl mb-4">Administration</h1>
@@ -38,12 +54,12 @@ function Admnistration() {
         <h2 className="text-white text-center text-2xl mb-5">
           Ajouter un nouveau projet
         </h2>
-        <div className="flex bg-slate-200 flex-wrap justify-evenly w-[60%] gap-5 mb-4 mx-10 rounded">
-          <label className="w-[40%] flex flex-col text-xl font-medium my-3">
+        <div className="flex bg-slate-200 flex-wrap justify-evenly w-[60%] gap-5 mb-4 mx-64 rounded">
+          <label className="w-[40%] flex flex-col text-lg font-medium my-3">
             Intitulé du projet :
             <input
               required
-              className="focus:outline-none bg-slate-300  p-2 rounded-3xl text-gray-900 my-3"
+              className="focus:outline-none bg-slate-300  p-2 rounded-xl text-gray-900 my-2"
               type="text"
               name="titre_projet"
               value={project.titre_projet}
@@ -51,71 +67,83 @@ function Admnistration() {
               onChange={(e) => handleProject(e.target.value, e.target.name)}
             />
           </label>
-          <label className="w-[40%] flex flex-col text-xl my-3 font-medium">
-            Langage :
-            <input
+          <label className="w-[40%] flex flex-col text-lg my-2 font-medium">
+            Langage(s) :
+            <select
               required
-              className="focus:outline-none bg-slate-300 p-2 rounded-3xl my-3  text-gray-900"
+              className="focus:outline-none bg-slate-300 p-2 rounded-xl my-3  text-gray-900"
               type="text"
-              name="langage"
-              value={project.language}
+              name="language"
+              value={langage.name}
               placeholder="  Langages utilisés"
               onChange={(e) => handleProject(e.target.value, e.target.name)}
-            />
+            >
+              <option>---</option>
+              {langage.map((lang) => {
+                return (
+                  <option value={lang.idLanguage} key={lang.idLanguage}>
+                    {lang.name}
+                  </option>
+                );
+              })}
+            </select>
           </label>
-          <label className="w-[40%] flex flex-col text-xl font-medium">
+          <label className="w-[40%] flex flex-col text-lg font-medium">
             Librairie css :
             <input
               required
-              className=" focus:outline-none bg-slate-300 p-2 rounded-3xl text-gray-900 my-3"
+              className=" focus:outline-none bg-slate-300 p-2 rounded-xl text-gray-900 my-2"
               type="text"
-              name="librairie_css"
+              name="Librairiecs_idLibrairiecs"
               value={project.nom}
               placeholder="  Librairie css"
               onChange={(e) => handleProject(e.target.value, e.target.name)}
             />
           </label>
-          <label className="w-[40%] flex flex-col text-xl font-medium">
-            Début du projet :
+          <label
+            id="file-label"
+            className="w-[40%] flex flex-col text-lg font-medium"
+          >
+            Image :
             <input
               required
-              className="focus:outline-none bg-slate-300 p-2 rounded-3xl  text-gray-900 my-3"
-              type="text"
-              name="date_debut"
-              value={project.date_debut}
-              placeholder="  Début du projet"
-              onChange={(e) => handleProject(e.target.value, e.target.name)}
-            />
-          </label>
-          <label className="w-[40%] flex flex-col text-xl font-medium">
-            Fin du projet :
-            <input
-              required
-              className="focus:outline-none bg-slate-300 p-2 rounded-3xl text-gray-900 my-3"
-              type="text"
-              name="date_fin"
-              value={project.date_fin}
-              placeholder="  Fin du projet"
-              onChange={(e) => handleProject(e.target.value, e.target.name)}
-            />
-          </label>
-          <label className="w-[40%] flex flex-col text-xl font-medium">
-            image :
-            <input
-              required
-              className="focus:outline-none bg-slate-300 p-2 rounded-3xl  text-gray-900 my-3"
-              type="text"
+              className="file-upload focus:outline-none bg-slate-300 p-2 rounded-xl  text-gray-900 my-2"
+              type="file"
               name="url_image"
               value={project.url_image}
               placeholder="  image du projet"
               onChange={(e) => handleProject(e.target.value, e.target.name)}
             />
           </label>
-          <label className="w-[40%] flex flex-col text-xl font-medium">
-            lien github :
+          <label className="w-[40%] flex flex-col text-lg font-medium">
+            Début du projet :
             <input
               required
-              className="focus:outline-none bg-slate-300 p-2 rounded-3xl text-gray-900 my-3"
+              className="focus:outline-none bg-slate-300 p-2 rounded-xl  text-gray-900 my-2"
+              type="date"
+              name="date_debut"
+              value={project.date_debut}
+              placeholder="  Début du projet"
+              onChange={(e) => handleProject(e.target.value, e.target.name)}
+            />
+          </label>
+          <label className="w-[40%] flex flex-col text-lg font-medium">
+            Fin du projet :
+            <input
+              required
+              className="focus:outline-none bg-slate-300 p-2 rounded-xl text-gray-900 my-2"
+              type="date"
+              name="date_fin"
+              value={project.date_fin}
+              placeholder="  Fin du projet"
+              onChange={(e) => handleProject(e.target.value, e.target.name)}
+            />
+          </label>
+          <label className="w-[40%] flex flex-col text-lg font-medium">
+            Lien github :
+            <input
+              required
+              className="focus:outline-none bg-slate-300 p-2 rounded-xl text-gray-900 my-2"
               type="text"
               name="url_github"
               value={project.url_github}
@@ -123,11 +151,11 @@ function Admnistration() {
               onChange={(e) => handleProject(e.target.value, e.target.name)}
             />
           </label>
-          <label className="w-[40%] flex flex-col text-xl font-medium">
-            lien du site :
+          <label className="w-[40%] flex flex-col text-lg font-medium">
+            Lien du site :
             <input
               required
-              className="focus:outline-none bg-slate-300 p-2 rounded-3xl text-gray-900 my-3"
+              className="focus:outline-none bg-slate-300 p-2 rounded-xl text-gray-900 my-2"
               type="text"
               name="url_site"
               value={project.url_site}
@@ -139,7 +167,7 @@ function Admnistration() {
             Description :
             <textarea
               required
-              className="focus:outline-none bg-slate-300 p-2 rounded-3xl  text-gray-900 my-3"
+              className="focus:outline-none bg-slate-300 p-2 rounded-xl  text-gray-900 my-2"
               type="text"
               name="description_projet"
               value={project.description_projet}
@@ -149,12 +177,20 @@ function Admnistration() {
           </label>
         </div>
         <div className="flex flex-col items-center">
-          <button
-            className="text-white button-home rounded py-2 px-3"
-            type="submit"
-          >
-            Envoyer
-          </button>
+          <div className="flex">
+            <button
+              type="button"
+              className="text-white button-home rounded py-2 px-3 mx-5 my-3"
+            >
+              Annuler
+            </button>
+            <button
+              className="text-white button-home rounded py-2 px-3 my-3"
+              type="submit"
+            >
+              Ajouter
+            </button>
+          </div>
           <h3 className=" text-red-700">{message}</h3>
         </div>
       </form>

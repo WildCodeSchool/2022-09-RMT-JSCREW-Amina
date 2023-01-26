@@ -21,3 +21,11 @@ body {
 .about-card {
   border-color: #ff4a57;
 }
+.file-upload::-webkit-file-upload-button {
+  background-color: #ff4a57;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
