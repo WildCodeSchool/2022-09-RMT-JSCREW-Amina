@@ -5,6 +5,7 @@ import NavBar from "@components/NavBar";
 import About from "@pages/About";
 import Carousel from "@components/Carousel/Carousel";
 import Skills from "@pages/Skills";
+import Contact from "@pages/Contact";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/APROPOS" element={<About />} />
           <Route path="/PORTFOLIO" element={<Carousel />} />
           <Route path="/COMPÉTENCES" element={<Skills />} />
+          <Route path="/CONTACT" element={<Contact />} />
         </Routes>
       </div>
     </Router>

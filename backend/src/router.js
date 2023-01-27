@@ -4,6 +4,7 @@ const ProjectControllers = require("./controllers/ProjectControllers");
 const router = express.Router();
 
 const itemControllers = require("./controllers/itemControllers");
+const mailControllers = require("./controllers/mailControllers");
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
@@ -15,4 +16,5 @@ router.get("/Project", ProjectControllers.browse);
 router.get("/Project/:id", ProjectControllers.read);
 router.post("/Project", ProjectControllers.add);
 router.delete("/Project/:id", ProjectControllers.destroy);
+router.post("/sendEmail", mailControllers.sendEmail);
 module.exports = router;
