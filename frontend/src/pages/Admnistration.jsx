@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import apiConnexion from "@services/apiConnexion";
+import Multiselect from "multiselect-react-dropdown";
 
 function Admnistration() {
   const [message, setMessage] = useState("");
@@ -8,9 +9,9 @@ function Admnistration() {
   const [project, setProject] = useState({
     titre_projet: "",
     description_projet: "",
+    language: [],
     date_debut: "",
     date_fin: "",
-    language: "",
     url_image: "",
     url_github: "",
     url_site: "",
@@ -50,6 +51,12 @@ function Admnistration() {
         console.warn(err);
       });
   };
+  const onSelect = (selectedList) => {
+    handleProject(selectedList, "language");
+  };
+  const onRemove = (selectedList) => {
+    handleProject(selectedList, "language");
+  };
 
   const sendForm = (e) => {
     e.preventDefault();
@@ -76,39 +83,31 @@ function Admnistration() {
               onChange={(e) => handleProject(e.target.value, e.target.name)}
             />
           </label>
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label className="w-[40%] flex flex-col text-lg my-2 font-medium">
             Langage(s) :
-            <select
-              required
-              className="focus:outline-none bg-slate-300 p-2 rounded-xl my-3  text-gray-900"
-              type="text"
-              name="language"
-              value={langage.name}
-              placeholder="  Langages utilisés"
-              onChange={(e) => handleProject(e.target.value, e.target.name)}
-            >
-              <option>---</option>
-              {langage.map((lang) => {
-                return (
-                  <option value={lang.idLanguage} key={lang.idLanguage}>
-                    {lang.name}
-                  </option>
-                );
-              })}
-            </select>
+            <Multiselect
+              options={langage} // Options to display in the dropdown
+              // selectedValues={selectedlanguage} // Preselected value to persist in dropdown
+              onSelect={onSelect} // Function will trigger on select event
+              onRemove={onRemove} // Function will trigger on remove event
+              displayValue="name" // Property name to display in the dropdown options
+            />
           </label>
           <label className="w-[40%] flex flex-col text-lg font-medium">
             Librairie css :
             <select
               required
-              className=" focus:outline-none bg-slate-300 p-2 rounded-xl text-gray-900 my-2"
+              className="focus:outline-none bg-slate-300 p-2 rounded-xl text-gray-900 my-2"
               type="text"
               name="Librairiecs_idLibrairiecs"
-              value={project.nom}
+              value={project.Librairiecs_idLibrairiecs}
               placeholder="  Librairie css"
               onChange={(e) => handleProject(e.target.value, e.target.name)}
             >
-              <option>---</option>
+              <option className="text-gray-900 font-medium">
+                Selectionner une librairie
+              </option>
               {librairie.map((lib) => {
                 return (
                   <option value={lib.idLibrairiecs} key={lib.idLibrairiecs}>
@@ -126,7 +125,7 @@ function Admnistration() {
             <input
               required
               className="file-upload focus:outline-none bg-slate-300 p-2 rounded-xl  text-gray-900 my-2"
-              type="file"
+              type="text"
               name="url_image"
               value={project.url_image}
               placeholder="  image du projet"
@@ -208,6 +207,7 @@ function Admnistration() {
             >
               Ajouter
             </button>
+            {/* <ToastContainer /> */}
           </div>
           <h3 className=" text-red-700">{message}</h3>
         </div>
