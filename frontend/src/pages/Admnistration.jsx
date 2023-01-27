@@ -4,6 +4,7 @@ import apiConnexion from "@services/apiConnexion";
 function Admnistration() {
   const [message, setMessage] = useState("");
   const [langage, setLangage] = useState([]);
+  const [librairie, setLibrairie] = useState([]);
   const [project, setProject] = useState({
     titre_projet: "",
     description_projet: "",
@@ -22,8 +23,16 @@ function Admnistration() {
       .then((json) => setLangage(json.data))
       .catch((err) => console.error(err));
   };
+
+  const getLibrairie = () => {
+    apiConnexion
+      .get(`/librairie`)
+      .then((json) => setLibrairie(json.data))
+      .catch((err) => console.error(err));
+  };
   useEffect(() => {
     getLangage();
+    getLibrairie();
   }, []);
 
   const handleProject = (value, name) => {
@@ -90,7 +99,7 @@ function Admnistration() {
           </label>
           <label className="w-[40%] flex flex-col text-lg font-medium">
             Librairie css :
-            <input
+            <select
               required
               className=" focus:outline-none bg-slate-300 p-2 rounded-xl text-gray-900 my-2"
               type="text"
@@ -98,7 +107,16 @@ function Admnistration() {
               value={project.nom}
               placeholder="  Librairie css"
               onChange={(e) => handleProject(e.target.value, e.target.name)}
-            />
+            >
+              <option>---</option>
+              {librairie.map((lib) => {
+                return (
+                  <option value={lib.idLibrairiecs} key={lib.idLibrairiecs}>
+                    {lib.nom}
+                  </option>
+                );
+              })}
+            </select>
           </label>
           <label
             id="file-label"

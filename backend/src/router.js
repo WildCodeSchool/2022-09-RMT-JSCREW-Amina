@@ -7,6 +7,8 @@ const itemControllers = require("./controllers/itemControllers");
 
 const LangageControllers = require("./controllers/LangageControllers");
 
+const LibrairieControllers = require("./controllers/LibrairieControllers");
+
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
 router.put("/items/:id", itemControllers.edit);
@@ -18,4 +20,5 @@ router.get("/Project/:id", ProjectControllers.read);
 router.post("/Project", ProjectControllers.add);
 router.delete("/Project/:id", ProjectControllers.destroy);
 router.get("/Langages", LangageControllers.browse);
+router.get("/librairie", LibrairieControllers.browse);
 module.exports = router;
