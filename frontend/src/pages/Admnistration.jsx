@@ -87,11 +87,10 @@ function Admnistration() {
           <label className="w-[40%] flex flex-col text-lg my-2 font-medium">
             Langage(s) :
             <Multiselect
-              options={langage} // Options to display in the dropdown
-              // selectedValues={selectedlanguage} // Preselected value to persist in dropdown
-              onSelect={onSelect} // Function will trigger on select event
-              onRemove={onRemove} // Function will trigger on remove event
-              displayValue="name" // Property name to display in the dropdown options
+              options={langage}
+              onSelect={onSelect}
+              onRemove={onRemove}
+              displayValue="name"
             />
           </label>
           <label className="w-[40%] flex flex-col text-lg font-medium">
