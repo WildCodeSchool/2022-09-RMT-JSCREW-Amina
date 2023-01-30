@@ -21,5 +21,7 @@ router.get("/Project/:id", ProjectControllers.read);
 router.post("/Project", ProjectControllers.add);
 router.delete("/Project/:id", ProjectControllers.destroy);
 router.post("/sendEmail", mailControllers.sendEmail);
+router.get("/Langages", LangageControllers.browse);
+router.get("/librairie", LibrairieControllers.browse);
 
 module.exports = router;
