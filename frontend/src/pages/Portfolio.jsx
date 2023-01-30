@@ -14,7 +14,7 @@ function Portfolio() {
   }, []);
   return (
     <div>
-      <div className="grid grid-cols-3 gap-4 my-30 py-32 mx-10 sm:hidden md:grid ">
+      <div className="grid grid-cols-3 gap-4 my-30 py-32 mx-10 sm:hidden md:grid min-[320px]:hidden ">
         {project.map((proj, index) => (
           <ProjectCard proj={proj} index={index} />
         ))}
