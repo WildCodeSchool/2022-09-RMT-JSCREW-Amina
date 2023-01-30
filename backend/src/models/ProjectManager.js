@@ -30,8 +30,8 @@ class ProjectManager extends AbstractManager {
         projet.url_github,
         projet.url_site,
         projet.Librairiecs_idLibrairiecs,
-        projet.archive,
-        projet.user_iduser,
+        0,
+        1,
       ]
     );
   }
