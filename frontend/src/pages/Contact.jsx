@@ -24,7 +24,7 @@ function Contact() {
         console.warn(err);
       });
   };
-  
+
   return (
     <div
       name="contact"
