@@ -73,7 +73,7 @@ function NavBar() {
               CONTACT
             </li>
           </Link>
-          {userContext.user ? (
+          {userContext.user && (
             <button
               onClick={() => userContext.handleUser(null)}
               type="button"
@@ -81,13 +81,9 @@ function NavBar() {
             >
               Logout
             </button>
-          ) : (
-            <Link to="/LOGIN">
-              <li className="md:ml-8 text-white text-xl md:hover:bg-zinc-500">
-                LOGIN
-              </li>
-            </Link>
-          )}
+          ) 
+            
+          }
           {userContext.user && (
             <Link to="/ADMIN">
               <li className="md:ml-8 text-white text-xl md:hover:bg-zinc-500">

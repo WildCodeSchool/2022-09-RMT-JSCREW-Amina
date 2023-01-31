@@ -7,7 +7,6 @@ function UserProvider({ children }) {
 
   const handleUser = (data) => {
     setUser(data);
-    // console.log(data);
   };
   return (
     <UserContext.Provider value={{ user, handleUser }}>

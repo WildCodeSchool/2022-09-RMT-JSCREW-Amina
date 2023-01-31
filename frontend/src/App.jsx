@@ -29,7 +29,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/LOGIN" element={<Login />} />
+          <Route path="/amina-milan" element={<Login />} />
         </Routes>
       </div>
     </Router>
