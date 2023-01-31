@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `amina`.`projet_language` (
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
+  
 INSERT INTO language (name, url_icone)
 VALUES("JavaScript", "https://www.flaticon.com/free-icon/javascript_919828?term=javascript&page=1&position=6&page=1&position=6&related_id=919828&origin=search"),
 ("React", "https://www.flaticon.com/free-icon/physics_753244?term=react&page=1&position=6&page=1&position=6&related_id=753244&origin=search"),
