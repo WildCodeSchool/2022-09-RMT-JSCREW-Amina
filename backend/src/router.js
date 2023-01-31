@@ -10,6 +10,8 @@ const LangageControllers = require("./controllers/LangageControllers");
 
 const LibrairieControllers = require("./controllers/LibrairieControllers");
 
+const UsersControllers = require("./controllers/UsersControllers");
+
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);
 router.put("/items/:id", itemControllers.edit);
@@ -23,5 +25,6 @@ router.delete("/Project/:id", ProjectControllers.destroy);
 router.post("/sendEmail", mailControllers.sendEmail);
 router.get("/Langages", LangageControllers.browse);
 router.get("/librairie", LibrairieControllers.browse);
+router.post("/login", UsersControllers.validateUser);
 
 module.exports = router;

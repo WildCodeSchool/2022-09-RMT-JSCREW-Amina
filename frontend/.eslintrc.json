@@ -17,6 +17,7 @@
   },
   "plugins": ["react", "import"],
   "rules": {
+    "react/jsx-no-constructed-context-values": "off",
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
@@ -43,7 +44,8 @@
           "@assets": "./src/assets",
           "@components": "./src/components",
           "@pages": "./src/pages",
-          "@services": "./src/services"
+          "@services": "./src/services",
+          "@contexts": "./src/contexts"
         },
         "extensions": [".js", ".jsx"]
       }

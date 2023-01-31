@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "@assets/logo.png";
 import menuBurger from "@assets/menuBurger.png";
 import close from "@assets/close.png";
+import User from "@contexts/User";
 
 function NavBar() {
+  const userContext = useContext(User.UserContext);
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => {
     setOpen(!open);
   };
@@ -70,6 +73,28 @@ function NavBar() {
               CONTACT
             </li>
           </Link>
+          {userContext.user ? (
+            <button
+              onClick={() => userContext.handleUser(null)}
+              type="button"
+              className="md:ml-8 text-white text-xl md:hover:bg-zinc-500"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/LOGIN">
+              <li className="md:ml-8 text-white text-xl md:hover:bg-zinc-500">
+                LOGIN
+              </li>
+            </Link>
+          )}
+          {userContext.user && (
+            <Link to="/ADMIN">
+              <li className="md:ml-8 text-white text-xl md:hover:bg-zinc-500">
+                Admnistration
+              </li>
+            </Link>
+          )}
         </ul>
       </div>
     </div>

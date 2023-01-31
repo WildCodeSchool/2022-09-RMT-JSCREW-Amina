@@ -7,6 +7,8 @@ import Skills from "@pages/Skills";
 import Contact from "@pages/Contact";
 import Portfolio from "@pages/Portfolio";
 import Admnistration from "@pages/Admnistration";
+import Login from "@pages/Login";
+import ProtectedRoute from "@pages/layouts/ProtectedRoute";
 
 function App() {
   return (
@@ -19,7 +21,15 @@ function App() {
           <Route path="/COMPÉTENCES" element={<Skills />} />
           <Route path="/CONTACT" element={<Contact />} />
           <Route path="/PORTFOLIO" element={<Portfolio />} />
-          <Route path="/ADMIN" element={<Admnistration />} />
+          <Route
+            path="/ADMIN"
+            element={
+              <ProtectedRoute>
+                <Admnistration />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/LOGIN" element={<Login />} />
         </Routes>
       </div>
     </Router>
