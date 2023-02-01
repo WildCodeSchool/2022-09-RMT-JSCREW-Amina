@@ -81,9 +81,7 @@ function NavBar() {
             >
               Logout
             </button>
-          ) 
-            
-          }
+          )}
           {userContext.user && (
             <Link to="/ADMIN">
               <li className="md:ml-8 text-white text-xl md:hover:bg-zinc-500">
