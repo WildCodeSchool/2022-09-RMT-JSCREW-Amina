@@ -1,23 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import apiConnexion from "@services/apiConnexion";
+import { useNavigate } from "react-router-dom";
+import User from "@contexts/User";
 
 function Login() {
   const [connexion, setConnexion] = useState({
     email: "",
     password: "",
   });
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const userContext = useContext(User.UserContext);
+
   const handleSubmit = () => {
-    const emailPattern = /^[^@] +@[^@]+.[^s@]+$/;
+    const emailPattern = /^[^s@]+@[^s@]+.[^s@]+$/;
     const passPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
     if (
       emailPattern.test(connexion.email) &&
       passPattern.test(connexion.password)
     ) {
-      setMessage("success");
+      apiConnexion
+        .post("/login", { ...connexion })
+        .then((res) => {
+          navigate("/ADMIN");
+          userContext.handleUser(res.data);
+        })
+        .catch((err) => {
+          setMessage(err.response.data.msg);
+          console.error(err);
+        });
     } else {
       setMessage("Wrong credentials");
     }
   };
+
   return (
     <div className="mt-40 flex flex-wrap">
       <div className="flex flex-col items-center  flex-nowrap w-1/3 h-2/3 bg-slate-200 rounded mx-auto mt-20 h-80">
@@ -36,7 +52,7 @@ function Login() {
             onChange={(e) =>
               setConnexion({ ...connexion, email: e.target.value })
             }
-            className="mt-2 outline-none"
+            className="mt-2 outline-none rounded"
           />
           <label htmlFor="password" className="mt-2 font-normal">
             Mot de passe
@@ -49,7 +65,7 @@ function Login() {
             onChange={(e) =>
               setConnexion({ ...connexion, password: e.target.value })
             }
-            className="mt-2 outline-none"
+            className="mt-2 outline-none rounded"
           />
           <p>{message}</p>
           <button
