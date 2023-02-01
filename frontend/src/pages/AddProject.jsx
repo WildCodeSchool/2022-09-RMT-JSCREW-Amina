@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import apiConnexion from "@services/apiConnexion";
 import Multiselect from "multiselect-react-dropdown";
 
-function Admnistration() {
+function AddProject() {
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [langage, setLangage] = useState([]);
   const [librairie, setLibrairie] = useState([]);
@@ -45,9 +47,10 @@ function Admnistration() {
     apiConnexion
       .post("/Project", { ...project })
       .then(() => {
-        setMessage("Message succesfully sent");
+        navigate("/ADMIN");
       })
       .catch((err) => {
+        setMessage("Le projet n'a pas pu être ajouté");
         console.warn(err);
       });
   };
@@ -64,10 +67,9 @@ function Admnistration() {
   };
 
   return (
-    <div className="my-36 flex flex-col items-center">
-      <h1 className="text-white text-center text-3xl mb-4">Administration</h1>
+    <div className="my-32 flex flex-col items-center">
       <form onSubmit={(e) => sendForm(e)}>
-        <h2 className="text-white text-center text-2xl mb-5">
+        <h2 className="text-white text-center text-2xl mb-7">
           Ajouter un nouveau projet
         </h2>
         <div className="flex bg-slate-200 flex-wrap justify-evenly w-[60%] gap-5 mb-4 mx-64 rounded">
@@ -206,7 +208,6 @@ function Admnistration() {
             >
               Ajouter
             </button>
-            {/* <ToastContainer /> */}
           </div>
           <h3 className=" text-red-700">{message}</h3>
         </div>
@@ -215,4 +216,4 @@ function Admnistration() {
   );
 }
 
-export default Admnistration;
+export default AddProject;

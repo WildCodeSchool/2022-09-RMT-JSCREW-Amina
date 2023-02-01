@@ -6,9 +6,10 @@ import About from "@pages/About";
 import Skills from "@pages/Skills";
 import Contact from "@pages/Contact";
 import Portfolio from "@pages/Portfolio";
-import Admnistration from "@pages/Admnistration";
 import Login from "@pages/Login";
 import ProtectedRoute from "@pages/layouts/ProtectedRoute";
+import ProjectManagement from "@pages/ProjectManagement";
+import AddProject from "@pages/AddProject";
 
 function App() {
   return (
@@ -25,11 +26,12 @@ function App() {
             path="/ADMIN"
             element={
               <ProtectedRoute>
-                <Admnistration />
+                <ProjectManagement />
               </ProtectedRoute>
             }
           />
           <Route path="/amina-milan" element={<Login />} />
+          <Route path="/ajouter-projet" element={<AddProject />} />
         </Routes>
       </div>
     </Router>
