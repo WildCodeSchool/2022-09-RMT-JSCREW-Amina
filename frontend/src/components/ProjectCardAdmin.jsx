@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ProjectCardAdmin({ proj, handleDeleteProject }) {
   return (
@@ -17,13 +18,12 @@ function ProjectCardAdmin({ proj, handleDeleteProject }) {
           >
             Supprimer
           </button>
-          <a
+          <Link
+            to="/modifier-projet"
             className="button-home w-1/4 px-6 py-3 m-4 duration-200 hover:scale-105 rounded"
-            href="/update/:id"
-            target="_blank"
           >
             Modifier
-          </a>
+          </Link>
         </div>
       </div>
     </div>

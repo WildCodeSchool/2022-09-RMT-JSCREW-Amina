@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import apiConnexion from "@services/apiConnexion";
 import Multiselect from "multiselect-react-dropdown";
 
 function AddProject() {
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [langage, setLangage] = useState([]);
   const [librairie, setLibrairie] = useState([]);
@@ -45,9 +47,10 @@ function AddProject() {
     apiConnexion
       .post("/Project", { ...project })
       .then(() => {
-        setMessage("Message succesfully sent");
+        navigate("/ADMIN");
       })
       .catch((err) => {
+        setMessage("Le projet n'a pas pu etre ajouté");
         console.warn(err);
       });
   };
@@ -199,14 +202,12 @@ function AddProject() {
             >
               Annuler
             </button>
-            <a href="/ADMIN">
-              <button
-                className="text-white button-home rounded py-2 px-3 my-3"
-                type="submit"
-              >
-                Ajouter
-              </button>
-            </a>
+            <button
+              className="text-white button-home rounded py-2 px-3 my-3"
+              type="submit"
+            >
+              Ajouter
+            </button>
           </div>
           <h3 className=" text-red-700">{message}</h3>
         </div>

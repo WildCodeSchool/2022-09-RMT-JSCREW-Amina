@@ -53,13 +53,13 @@ function ProjectManagement() {
   }, []);
   return (
     <div>
-      <h1 className="text-white text-center font-semibold text-2xl pt-8 my-16">
+      <h1 className="text-white text-center font-semibold text-2xl pt-8 mt-16">
         Gestion des projets
       </h1>
       <div className="flex justify-center my-1">
         <Link
           to="/ajouter-projet"
-          className="button-home rounded px-6 py-2 text-white my-2"
+          className="button-home rounded px-6 py-2 text-white my-4"
         >
           Ajouter un projet
         </Link>
