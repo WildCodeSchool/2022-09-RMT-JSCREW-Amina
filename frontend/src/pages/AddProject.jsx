@@ -50,7 +50,7 @@ function AddProject() {
         navigate("/ADMIN");
       })
       .catch((err) => {
-        setMessage("Le projet n'a pas pu etre ajouté");
+        setMessage("Le projet n'a pas pu être ajouté");
         console.warn(err);
       });
   };
