@@ -17,7 +17,7 @@ function AddProject() {
     url_image: "",
     url_github: "",
     url_site: "",
-    Librairiecs_idLibrairiecs: "",
+    Librairiecs_idLibrairiecs: null,
   });
 
   const getLangage = () => {
