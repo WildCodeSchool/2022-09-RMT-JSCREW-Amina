@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import apiConnexion from "@services/apiConnexion";
-import Multiselect from "multiselect-react-dropdown";
+import { MultiSelect } from "react-multi-select-component";
 
 function AddProject() {
   const navigate = useNavigate();
@@ -23,14 +23,22 @@ function AddProject() {
   const getLangage = () => {
     apiConnexion
       .get(`/Langages`)
-      .then((json) => setLangage(json.data))
+      .then((json) => {
+        const langue = json.data.map((lg) => ({
+          value: lg.idLanguage,
+          label: lg.name,
+        }));
+        setLangage(langue);
+      })
       .catch((err) => console.error(err));
   };
 
   const getLibrairie = () => {
     apiConnexion
       .get(`/librairie`)
-      .then((json) => setLibrairie(json.data))
+      .then((json) => {
+        setLibrairie(json.data);
+      })
       .catch((err) => console.error(err));
   };
   useEffect(() => {
@@ -54,10 +62,8 @@ function AddProject() {
         console.warn(err);
       });
   };
-  const onSelect = (selectedList) => {
-    handleProject(selectedList, "language");
-  };
-  const onRemove = (selectedList) => {
+
+  const handleLangage = (selectedList) => {
     handleProject(selectedList, "language");
   };
 
@@ -85,16 +91,18 @@ function AddProject() {
               onChange={(e) => handleProject(e.target.value, e.target.name)}
             />
           </label>
-          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label className="w-[40%] flex flex-col text-lg my-2 font-medium">
-            Langage(s) :
-            <Multiselect
-              options={langage}
-              onSelect={onSelect}
-              onRemove={onRemove}
-              displayValue="name"
-            />
-          </label>
+          {/* eslint-disable jsx-a11y/label-has-associated-control */}
+          {langage[0] && (
+            <label className="w-[40%] flex flex-col text-lg my-2 font-medium">
+              Langage(s) :
+              <MultiSelect
+                options={langage}
+                value={project.language}
+                onChange={handleLangage}
+                labelledBy="Select"
+              />
+            </label>
+          )}
           <label className="w-[40%] flex flex-col text-lg font-medium">
             Librairie css :
             <select
