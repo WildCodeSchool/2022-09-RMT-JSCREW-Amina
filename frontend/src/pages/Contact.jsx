@@ -28,14 +28,11 @@ function Contact() {
   return (
     <div
       name="contact"
-      className="w-full h-screen bg-gradient-to-b from-black to-gray-800 p-4 text-white mt-32"
+      className="w-full h-screen  from-black to-gray-800 p-4 text-white mt-28"
     >
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
         <div className="pb-4 text-center">
-          <p className="text-4xl text-center font-bold inline border-b-4 border-gray-500">
-            CONTACT
-          </p>
-          <p className="py-6 text-center">
+          <p className="py-6 text-center text-lg">
             N'hésitez pas à me contacter, je vous répondrai dans les plus brefs
             délais.
           </p>

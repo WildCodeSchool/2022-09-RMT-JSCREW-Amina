@@ -1,3 +1,4 @@
+-- SQLBook: Code
 
 -- -----------------------------------------------------
 -- Table ``.`librairie-css`
@@ -34,21 +35,21 @@ CREATE TABLE IF NOT EXISTS `amina`.`projet` (
   `description_projet` VARCHAR(200) NOT NULL,
   `date_debut` DATE NOT NULL,
   `date_fin` DATE NOT NULL,
-  `url_image` VARCHAR(155) NOT NULL,
-  `url_github` VARCHAR(155) NULL,
-  `url_site` VARCHAR(155) NULL,
+  `url_image` VARCHAR(255) NOT NULL,
+  `url_github` VARCHAR(255) NULL,
+  `url_site` VARCHAR(255) NULL,
   `Librairiecs_idLibrairiecs` INT NOT NULL,
   `archive` TINYINT(1) NOT NULL DEFAULT 0,
   `user_iduser` INT NOT NULL,
   PRIMARY KEY (`idprojet`),
   CONSTRAINT `fk_projet_Librairiecs1`
     FOREIGN KEY (`Librairiecs_idLibrairiecs`)
-    REFERENCES `amina_db`.`librairie_css` (`idLibrairiecs`)
+    REFERENCES `amina`.`librairie_css` (`idLibrairiecs`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_projet_user1`
     FOREIGN KEY (`user_iduser`)
-    REFERENCES `amina_db`.`user` (`iduser`)
+    REFERENCES `amina`.`user` (`iduser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -76,12 +77,12 @@ CREATE TABLE IF NOT EXISTS `amina`.`projet_language` (
   PRIMARY KEY (`language_idLanguage`, `projet_idprojet`),
   CONSTRAINT `fk_table1_Language1`
     FOREIGN KEY (`language_idLanguage`)
-    REFERENCES `amina_db`.`language` (`idLanguage`)
+    REFERENCES `amina`.`language` (`idLanguage`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_table1_projet1`
     FOREIGN KEY (`projet_idprojet`)
-    REFERENCES `amina_db`.`projet` (`idprojet`)
+    REFERENCES `amina`.`projet` (`idprojet`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -100,8 +101,8 @@ INSERT INTO user (email, password_hache)
 VALUES("amina.hakimi86@gmail.com", "matgAog3r6t@"),
 ("amina.hakimi2022@gmail.com", "lkdht98Hk@%");
 INSERT INTO projet (titre_projet, description_projet, date_debut, date_fin, url_image, url_github, url_site, Librairiecs_idLibrairiecs, archive, user_iduser)
-VALUES("Site web en HTML et CSS", "Site web destiné à promouvoir les paysages japonais", "2022-09-26", "2022-10-07", "assets/images/image-projet-1.png", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-TEAM-B", "https://wildcodeschool.github.io/2022-09-JS-RMT-JSCREW-TEAM-B/index.html", 1, 0, 1),
-("Site web en React", "Plateforme de streaming de films", "2022-10-17", "2022-11-23", "assets/images/image-projet-2.png", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", 2, 0, 1);
+VALUES("Site web en HTML et CSS", "Site web destiné à promouvoir les paysages japonais", "2022-09-26", "2022-10-07", "https://i.postimg.cc/vmthV81r/image-projet-1.png", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-TEAM-B", "https://wildcodeschool.github.io/2022-09-JS-RMT-JSCREW-TEAM-B/index.html", 1, 0, 1),
+("Site web en React", "Plateforme de streaming de films", "2022-10-17", "2022-11-23", "https://i.postimg.cc/QMF1JpdJ/image-projet-2.png", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", "https://github.com/WildCodeSchool/2022-09-JS-RMT-JSCREW-projet2-team3", 2, 0, 1);
 INSERT INTO projet_language (language_idLanguage, projet_idprojet)
 VALUES(1, 1),
 (2, 2);

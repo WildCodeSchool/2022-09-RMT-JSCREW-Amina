@@ -42,8 +42,8 @@ function Carousel() {
               key={obj.id}
             >
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}/${obj.url_image}`}
-                alt={`${import.meta.env.VITE_BACKEND_URL}/${obj.titre_projet}`}
+                src={obj.url_image}
+                alt={`${obj.titre_projet}- Amina - Portfolio`}
                 className="z-0"
               />
             </div>
@@ -75,14 +75,15 @@ function Carousel() {
             {project[slideIndex - 1].description_projet}
           </p>
           <p className="text-white text-center  mx-6 my-5 font-medium z-20 md:hidden">
-            Languages utilisés : {project[slideIndex - 1].language[0].name}
+            Langages utilisé(s) :{" "}
+            {project[slideIndex - 1].language.map((lang) => `${lang.name} `)}
           </p>
           <p className="text-white text-center  mx-6 my-5 font-medium z-20 md:hidden">
             Librairie css utilisée : {project[slideIndex - 1].nom}
           </p>
           <p className="text-white text-center  mx-6 my-5 font-medium md:hidden">
-            Durée du projet :
-            {project[slideIndex - 1].date_debut.split("T").shift()} au
+            Durée du projet :{" "}
+            {project[slideIndex - 1].date_debut.split("T").shift()} au{" "}
             {project[slideIndex - 1].date_fin.split("T").shift()}
           </p>
           <div className="flex flex-col items-center">
