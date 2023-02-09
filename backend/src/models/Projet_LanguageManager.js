@@ -19,7 +19,7 @@ class ProjectManager extends AbstractManager {
     languages.forEach((lang, index) => {
       if (index > 0) query += ",";
       query += " (?, ?)";
-      values.push(lang.idLanguage, idProjet);
+      values.push(lang.value, idProjet);
     });
     return this.connection.query(query, values);
   }
