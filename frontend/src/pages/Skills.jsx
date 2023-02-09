@@ -76,7 +76,7 @@ function Skills() {
       <div className="max-w-screen-lg mx-auto p-4 my-52 flex flex-col justify-center w-full text-white md:my-20">
         <div>
           <p className="text-4xl font-bold border-b-4 border-gray-500 p-0 inline my-14 mx-6">
-            Competences
+            Compétences
           </p>
           <p className="py-0 text-lg px-5 mx-6 mt-6">
             Les technologies utilisées :

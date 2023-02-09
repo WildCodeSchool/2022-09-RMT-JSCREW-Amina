@@ -11,6 +11,18 @@ class ProjectManager extends AbstractManager {
       [id]
     );
   }
+
+  insert(idProjet, languages) {
+    let query = `insert into ${this.table} (language_idLanguage, projet_idprojet) values`;
+    const values = [];
+
+    languages.forEach((lang, index) => {
+      if (index > 0) query += ",";
+      query += " (?, ?)";
+      values.push(lang.idLanguage, idProjet);
+    });
+    return this.connection.query(query, values);
+  }
 }
 
 module.exports = ProjectManager;
