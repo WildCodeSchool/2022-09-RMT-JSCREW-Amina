@@ -7,8 +7,8 @@ function ProjectCardAdmin({ proj, handleDeleteProject }) {
       <div className="shadow-md shadow-gray-600 rounded-lg">
         <img
           className="rounded-md duration-200 hover:scale-105"
-          src={`${import.meta.env.VITE_BACKEND_URL}/${proj.url_image}`}
-          alt={`${import.meta.env.VITE_BACKEND_URL}/${proj.titre_projet}`}
+          src={proj.url_image}
+          alt={`${proj.titre_projet} - Amina Portfolio`}
         />
         <div className="flex items-center justify-center">
           <button

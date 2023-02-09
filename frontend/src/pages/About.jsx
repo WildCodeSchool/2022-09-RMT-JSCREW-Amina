@@ -44,10 +44,10 @@ function About() {
             (Wild Code School)
           </span>
           <span className="text-white text-lg ml-1 w-50 md:text-lg">
-            Github : Samarcande86
+            Compte Github : Amina-Hakimi
           </span>
           <span className="text-white text-lg ml-1 md:text-xl">
-            Expérience : 3 projets réalisés pendant la formation
+            Expérience : 5 projets réalisés pendant la formation
           </span>
         </div>
         <div className="inline mt-8">

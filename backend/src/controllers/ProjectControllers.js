@@ -41,18 +41,28 @@ const read = (req, res) => {
       res.sendStatus(500);
     });
 };
+
 const add = (req, res) => {
   const projet = req.body;
   models.projet
     .insert(projet)
-    .then(([result]) => {
-      res.location(`/PORTFOLIO/${result.insertId}`).sendStatus(201);
+    .then(([proj]) => {
+      models.projet_language
+        .insert(proj.insertId, projet.language)
+        .then(() => {
+          res.location(`/PORTFOLIO/${proj.insertId}`).sendStatus(201);
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
     })
     .catch((err) => {
       console.error(err);
       res.sendStatus(500);
     });
 };
+
 const destroy = (req, res) => {
   models.projet
     .delete(req.params.id)
